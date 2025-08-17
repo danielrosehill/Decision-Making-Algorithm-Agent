@@ -1,0 +1,47 @@
+BUSINESS INVESTMENT DECISION LOGIC
+===================================
+
+IF investment_opportunity_identified THEN
+    conduct_market_research()
+    
+    IF market_size > $1M THEN
+        analyze_competitive_landscape()
+        
+        IF competitive_advantage = TRUE THEN
+            conduct_financial_analysis()
+            
+            IF ROI > 20% AND payback_period < 3_years THEN
+                assess_risks()
+                
+                IF risk_score < risk_tolerance THEN
+                    action = proceed_with_investment
+                    outcome = investment_approved
+                ELSE IF risk_score >= risk_tolerance THEN
+                    IF renegotiation_possible = TRUE THEN
+                        renegotiate_terms()
+                        GOTO conduct_financial_analysis
+                    ELSE
+                        action = decline_investment
+                        outcome = investment_rejected
+                    END IF
+                END IF
+            ELSE
+                action = decline_investment
+                outcome = investment_rejected
+            END IF
+        ELSE
+            action = decline_investment
+            outcome = investment_rejected
+        END IF
+    ELSE
+        action = decline_investment
+        outcome = investment_rejected
+    END IF
+END IF
+
+EVALUATION CRITERIA:
+- market_size: total_addressable_market > $1M
+- competitive_advantage: unique_value_proposition OR cost_advantage OR differentiation
+- ROI_calculation: (expected_return - investment_cost) / investment_cost
+- risk_score: market_risk + execution_risk + financial_risk + regulatory_risk
+- risk_tolerance: organization_risk_appetite AND available_capital

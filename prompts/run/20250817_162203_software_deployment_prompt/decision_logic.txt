@@ -1,0 +1,43 @@
+SOFTWARE DEPLOYMENT DECISION LOGIC
+===================================
+
+IF code_ready_for_deployment THEN
+    IF all_tests_passing = TRUE THEN
+        IF code_review_required = TRUE THEN
+            request_code_review()
+            
+            IF review_approved = TRUE THEN
+                proceed_to_staging()
+            ELSE
+                fix_review_comments()
+                GOTO code_review_required
+            END IF
+        ELSE
+            proceed_to_staging()
+        END IF
+        
+        staging_deployment()
+        
+        IF staging_tests_pass = TRUE THEN
+            production_deployment()
+            monitor_deployment()
+            outcome = deployment_successful
+        ELSE
+            rollback_deployment()
+            outcome = deployment_failed
+        END IF
+    ELSE
+        fix_failing_tests()
+        GOTO all_tests_passing
+    END IF
+END IF
+
+GATE CONDITIONS:
+- all_tests_passing: unit_tests AND integration_tests AND security_tests
+- code_review_required: team_size > 3 OR production_system
+- staging_tests_pass: functional_tests AND performance_tests
+
+ROLLBACK TRIGGERS:
+- error_rate > 1%
+- response_time > 2x_baseline
+- critical_functionality_broken

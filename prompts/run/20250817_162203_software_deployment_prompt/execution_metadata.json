@@ -1,0 +1,9 @@
+{
+  "original_prompt": "software_deployment_prompt.md",
+  "processed_at": "2025-08-17T16:22:03.489951",
+  "topic": "software_deployment",
+  "files_generated": [
+    "decision_logic.txt",
+    "flowchart.md"
+  ]
+}

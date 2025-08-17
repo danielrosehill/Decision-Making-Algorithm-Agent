@@ -1,0 +1,9 @@
+{
+  "original_prompt": "emergency_room_prompt.txt",
+  "processed_at": "2025-08-17T16:22:03.489611",
+  "topic": "emergency_room",
+  "files_generated": [
+    "decision_logic.txt",
+    "flowchart.md"
+  ]
+}

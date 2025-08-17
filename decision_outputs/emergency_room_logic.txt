@@ -1,0 +1,33 @@
+EMERGENCY ROOM DECISION LOGIC
+================================
+
+IF patient_experiencing_symptoms THEN
+    IF severe_symptoms = TRUE THEN
+        action = call_911_immediately
+        outcome = emergency_transport
+    ELSE IF severe_symptoms = FALSE THEN
+        evaluate_urgency_level()
+        
+        IF urgency_level = HIGH THEN
+            IF urgent_care_available = TRUE THEN
+                action = visit_emergency_room
+                outcome = receive_urgent_care
+            ELSE
+                action = schedule_primary_care
+                outcome = receive_standard_care
+        ELSE IF urgency_level = LOW THEN
+            action = schedule_primary_care
+            outcome = receive_standard_care
+        END IF
+    END IF
+END IF
+
+CONDITION DEFINITIONS:
+- severe_symptoms: chest_pain OR difficulty_breathing OR severe_bleeding OR loss_of_consciousness
+- high_urgency: temperature > 39°C OR severe_pain OR breathing_difficulty
+- urgent_care_available: emergency_room_wait_time < 2_hours
+
+ACTION PRIORITIES:
+1. life_threatening = call_911
+2. high_urgency = emergency_room
+3. low_urgency = primary_care

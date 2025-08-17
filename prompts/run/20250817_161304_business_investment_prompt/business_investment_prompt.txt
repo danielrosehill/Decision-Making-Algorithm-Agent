@@ -1,0 +1,4 @@
+# Topic: Business Investment
+# Description: Investment decision framework for startups
+
+Create a decision-making framework for evaluating business investment opportunities. Include market analysis, competitive assessment, financial evaluation, and risk assessment criteria.

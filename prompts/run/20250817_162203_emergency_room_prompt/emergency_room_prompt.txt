@@ -1,0 +1,4 @@
+# Topic: Emergency Room Decision Making
+# Description: NHS guidelines for when to visit emergency room
+
+Create a decision-making flowchart for when patients should visit the emergency room during medical emergencies. Include criteria for severe symptoms, urgency levels, and appropriate care pathways.
